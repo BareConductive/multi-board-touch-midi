@@ -78,8 +78,6 @@ void setup(){
     MPR121.setTouchThreshold(i, 40);
     MPR121.setTouchThreshold(i, 20);
   }
-
-  Serial.begin(9600);
 }
 
 void loop(){
@@ -107,11 +105,6 @@ void processInputs() {
 void sendSerialStatus(){
   Serial1.begin(57600);
   Serial1.write('T');
-    Serial1.write(touchStatus, 12);
-  Serial.write('T');
-  for(int i=0; i<12; i++){
-    Serial.write(touchStatus[i]);
-  }
-  Serial.println();
+  Serial1.write(touchStatus, 12);
   Serial1.end();
 }
